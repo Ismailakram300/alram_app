@@ -13,8 +13,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
         title: Text('Alarm App'),
-        centerTitle: true,
+        centerTitle: true
+
       ),
     );
   }
