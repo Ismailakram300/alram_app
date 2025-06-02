@@ -1,3 +1,4 @@
+import 'package:alram_app/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:  (),
+      home: HomePage (),
     );
   }
 }
