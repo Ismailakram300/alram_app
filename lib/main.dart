@@ -37,12 +37,3 @@ class MyHomePage extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-
-       
