@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.cyan,
-        
+
         title: Text('Alarm App'),
         centerTitle: true
 
