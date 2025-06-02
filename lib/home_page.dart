@@ -10,6 +10,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  TimeOfDay? selectedTime;
+  Future<void> _picktime() async{
+    print("hello");
+    final time=  await showTimePicker(context: context, initialTime: TimeOfDay.now());
+     if(time!= null){
+
+       setState(() {
+         selectedTime =time;
+
+       });
+
+       FlutterAlarmClock.createAlarm(hour: time.hour,
+       minutes: time.minute
+       );
+     }
+
+
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,13 +45,11 @@ class _HomePageState extends State<HomePage> {
             Container(
               margin: const EdgeInsets.all(25),
               child: TextButton(
-                child: const Text(
+                child:  Text(
                   'Create alarm at 23:59',
                   style: TextStyle(fontSize: 20),
                 ),
-                onPressed: () {
-                  FlutterAlarmClock.createAlarm(hour: 15, minutes: 51,title: "helo");
-                },
+                onPressed: _picktime,
               ),
             ),
             Container(
