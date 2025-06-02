@@ -11,9 +11,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TimeOfDay? selectedTime;
+  TextEditingController _title = TextEditingController();
   Future<void> _picktime() async{
-    print("hello");
-    final time=  await showTimePicker(context: context, initialTime: TimeOfDay.now());
+    await TextField(
+      controller: _title,
+      decoration: InputDecoration(
+        hintText: "heloo",
+      ),
+
+    );
+    final time=  await showTimePicker(context: context, initialTime: TimeOfDay.now(), );
      if(time!= null){
 
        setState(() {
@@ -22,7 +29,8 @@ class _HomePageState extends State<HomePage> {
        });
 
        FlutterAlarmClock.createAlarm(hour: time.hour,
-       minutes: time.minute
+       minutes: time.minute,
+         title: _title.text,
        );
      }
 
@@ -42,11 +50,18 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
+
+          TextField(
+          controller: _title,
+          decoration: InputDecoration(
+            labelText: 'Alarm Title',
+            border: OutlineInputBorder(),
+          ),),
             Container(
               margin: const EdgeInsets.all(25),
               child: TextButton(
                 child:  Text(
-                  'Create alarm at 23:59',
+                  'Create alarm ',
                   style: TextStyle(fontSize: 20),
                 ),
                 onPressed: _picktime,
